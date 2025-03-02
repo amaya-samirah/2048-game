@@ -131,9 +131,11 @@ public class GameBoard {
             case 1:  // up
                 for (int y = 0; y < 4; y++) {
                     for (int x = 0; x < 4; x++) {
-                        if (y != 0) {
-                            board[y][x] = board[y-1][x];
-                            board[y][x] = 0;
+                        if (y != 0 && board[y][x] != 0) {
+                            if (board[y-1][x] == 0) {
+                                board[y-1][x] = board[y][x];
+                                board[y][x] = 0;
+                            }
                         }
                     }
                 }
@@ -142,9 +144,11 @@ public class GameBoard {
             case -1:  // down
                 for (int y = 0; y < 4; y++) {
                     for (int x = 0; x < 4; x++) {
-                        if (y != 3) {
-                            board[y][x] = board[y+1][x];
-                            board[y][x] = 0;
+                        if (y != 3 && board[y][x] != 0) {
+                            if (board[y+1][x] == 0) {
+                                board[y+1][x] = board[y][x];
+                                board[y][x] = 0;
+                            }
                         }
                     }
                 }
@@ -153,9 +157,11 @@ public class GameBoard {
             case 2:  // right
                 for (int y = 0; y < 4; y++) {
                     for (int x = 0; x < 4; x++) {
-                        if (x != 3) {
-                            board[y][x] = board[y][x+1];
-                            board[y][x] = 0;
+                        if (x != 3 && board[y][x] != 0) {
+                            if (board[y][x+1] == 0) {
+                                board[y][x+1] = board[y][x];
+                                board[y][x] = 0;
+                            }
                         }
                     }
                 }
@@ -164,9 +170,11 @@ public class GameBoard {
             case -2:  // left
                 for (int y = 0; y < 4; y++) {
                     for (int x = 0; x < 4; x++) {
-                        if (x != 0) {
-                            board[y][x] = board[y][x-1];
-                            board[y][x] = 0;
+                        if (x != 0 && board[y][x] != 0) {
+                            if (board[y][x-1] == 0) {
+                                board[y][x-1] = board[y][x];
+                                board[y][x] = 0;
+                            }
                         }
                     }
                 }
@@ -176,7 +184,7 @@ public class GameBoard {
                 throw new AssertionError();
         }
 
-        addBlock();
+        //addBlock();
     }
 
 }
