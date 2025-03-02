@@ -53,8 +53,7 @@ public class GameBoard {
     }
 
     public int chooseBlock() {
-        int block = 0;
-        block = rand.nextInt(2);
+        int block = rand.nextInt(2);
         if (block == 0) {
             return 2;
         } else {
