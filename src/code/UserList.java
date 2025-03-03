@@ -1,6 +1,5 @@
 package code;
 
-import java.awt.DefaultKeyboardFocusManager;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -14,5 +13,6 @@ public class UserList {
     private ArrayList<User> userList;
 
     private UserList() {
+        
     }
 }
