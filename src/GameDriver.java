@@ -4,7 +4,17 @@ import java.util.Scanner;
 public class GameDriver {
     public static Scanner keyboard = new Scanner(System.in);
     public static void main(String[] args) {
-        GameBoard gameBoard = GameBoard.getInstance();
+        println("""
+                Enter a Game Mode:
+                --128--
+                --256--
+                --512--
+                --1024--
+                --2048--
+                """);
+        int mode = keyboard.nextInt();
+        keyboard.nextLine();
+        GameBoard gameBoard = GameBoard.getInstance(mode);
         //gameBoard.resetBoard();
         drawBoard(gameBoard);
 
@@ -24,8 +34,14 @@ public class GameDriver {
                 play = false;
                 break;
             }
-            gameBoard.moveBlocks(input);
-            drawBoard(gameBoard);
+            if (gameBoard.moveBlocks(input)) {
+                println("YOU WIN!!!");
+                play = false;
+            } else {
+                drawBoard(gameBoard);
+            }
+            
+            
         }
         
         println("You have exited the game.");

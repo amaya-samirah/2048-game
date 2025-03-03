@@ -194,7 +194,8 @@ public class GameBoard {
      * Moves the blocks on the board
      * @param direction The direction the user has moved the blocks
      */
-    public void moveBlocks(int direction) {
+    public boolean moveBlocks(int direction) {
+        boolean win = false;
         switch (direction) {
             case 1:  // up
                 for (int y = 0; y < 4; y++) {
@@ -252,7 +253,12 @@ public class GameBoard {
                 throw new AssertionError();
         }
 
-        addBlock();
+        if (hasWon(board)) {
+            win = true;
+        } else {
+           addBlock(); 
+        }
+        return win;
     }
 
     public boolean hasWon(int[][] board) {
