@@ -10,5 +10,5 @@
 // 1024
 // 2048
 public interface GameMode {
-    public void hasWon();
+    public boolean hasWon();
 }
