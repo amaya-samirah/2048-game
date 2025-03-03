@@ -1,4 +1,4 @@
-package src.code;
+package code;
 /**
  * This interface deals with what mode the game is in
  * @author Amaya Shabazz

@@ -1,4 +1,4 @@
-package src.code;
+package code;
 
 /**
  * This is the 256 game mode

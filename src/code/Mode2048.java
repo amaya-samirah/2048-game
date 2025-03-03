@@ -1,4 +1,4 @@
-package src.code;
+package code;
 
 /**
  * This is the 2048 game mode
