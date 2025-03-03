@@ -5,7 +5,12 @@ package src;
  */
 
 public class Mode256 implements GameMode {
-    
+    private GameBoard board;
+
+    public Mode256(GameBoard board) {
+        this.board = board;
+    }
+
     @Override
     public boolean hasWon() {
         boolean won = false;

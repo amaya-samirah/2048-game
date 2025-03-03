@@ -5,7 +5,12 @@ package src;
  */
 
 public class Mode1024 implements GameMode {
-    
+    private GameBoard board;
+
+    public Mode1024(GameBoard board) {
+        this.board = board;
+    }
+
     @Override
     public boolean hasWon() {
         boolean won = false;
