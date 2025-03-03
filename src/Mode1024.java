@@ -1,9 +1,10 @@
+package src;
 /**
- * This is the 256 game mode
+ * This is the 1024 game mode
  * @author Amaya Shabazz
  */
 
-public class Mode256 implements GameMode {
+public class Mode1024 implements GameMode {
     
     @Override
     public boolean hasWon() {

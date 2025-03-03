@@ -1,3 +1,5 @@
+package src;
+
 import java.util.Random;
 
 /**
@@ -11,10 +13,17 @@ public class GameBoard {
     private static GameBoard gameboard;
     public Random rand = new Random();
 
+    private GameMode mode2048;
+    private GameMode mode1024;
+    private GameMode mode512;
+    private GameMode mode256;
+    private GameMode mode128;
+    private GameMode mode;
+
     /**
      * Default constructor
      */
-    private GameBoard() {
+    private GameBoard(int gameMode) {
         setUpBoard();
     }
 
@@ -22,10 +31,10 @@ public class GameBoard {
      * Instance of GameBoard
      * @return GameBoard
      */
-    public static GameBoard getInstance() {
+    public static GameBoard getInstance(int gameMode) {
         if (gameboard == null) {
             System.out.println("Creating new board...");
-            gameboard = new GameBoard();
+            gameboard = new GameBoard(gameMode);
         }
 
         return gameboard;

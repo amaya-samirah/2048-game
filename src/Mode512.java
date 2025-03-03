@@ -1,3 +1,4 @@
+package src;
 /**
  * This is the 512 game mode
  * @author Amaya Shabazz

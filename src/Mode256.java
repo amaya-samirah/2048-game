@@ -1,9 +1,10 @@
+package src;
 /**
- * This is the 2048 game mode
+ * This is the 256 game mode
  * @author Amaya Shabazz
  */
 
-public class Mode2048 implements GameMode {
+public class Mode256 implements GameMode {
     
     @Override
     public boolean hasWon() {
