@@ -11,10 +11,17 @@ public class GameBoard {
     private static GameBoard gameboard;
     public Random rand = new Random();
 
+    /**
+     * Default constructor
+     */
     private GameBoard() {
         setUpBoard();
     }
 
+    /**
+     * Instance of GameBoard
+     * @return GameBoard
+     */
     public static GameBoard getInstance() {
         if (gameboard == null) {
             System.out.println("Creating new board...");
@@ -24,6 +31,9 @@ public class GameBoard {
         return gameboard;
     }
 
+    /**
+     * Creates board for start of game
+     */
     private void setUpBoard() {
         // Start with 2 blocks on board
         int xPos1 = rand.nextInt(4);
@@ -44,14 +54,27 @@ public class GameBoard {
         board[yPos2][xPos2] = chooseBlock();
     }
 
+    /**
+     * Resets board to starting point
+     */
     public void resetBoard() {
         board = new int[4][4];
     }
 
+    /**
+     * Gets the block at certain point on board
+     * @param yPos Block row
+     * @param xPos Block coloumn
+     * @return Value of the block
+     */
     public int getBlock(int yPos, int xPos) {
         return board[yPos][xPos];
     }
 
+    /**
+     * Decides between 2 and 4 block
+     * @return Value of block
+     */
     public int chooseBlock() {
         int block = rand.nextInt(2);
         if (block == 0) {
@@ -61,6 +84,9 @@ public class GameBoard {
         }
     }
 
+    /**
+     * Adds block to empty spot on board
+     */
     public void addBlock() {
         boolean empty = false;
         int y = 0;
@@ -74,6 +100,10 @@ public class GameBoard {
         board[y][x] = chooseBlock();
     }
 
+    /**
+     * Combines blocks with the same value
+     * @param direction Direction the player has moved the blocks on board
+     */
     public void combineBlocks(int direction) {
         // Blocks have already been moved
         switch (direction) {
@@ -125,6 +155,10 @@ public class GameBoard {
 
     }
 
+    /**
+     * Moves the blocks on the board
+     * @param direction The direction the user has moved the blocks
+     */
     public void moveBlocks(int direction) {
         switch (direction) {
             case 1:  // up
