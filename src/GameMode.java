@@ -11,5 +11,5 @@ package src;
 // 1024
 // 2048
 public interface GameMode {
-    public boolean hasWon();
+    public boolean hasWon(int[][] board);
 }

@@ -24,7 +24,33 @@ public class GameBoard {
      * Default constructor
      */
     private GameBoard(int gameMode) {
+        mode128 = new Mode128(this);
+        mode256 = new Mode256(this);
+        mode512 = new Mode512(this);
+        mode1024 = new Mode1024(this);
+        mode2048 = new Mode2048(this);
+
         setUpBoard();
+
+        switch (gameMode) {
+            case 128:
+                mode = mode128;
+                break;
+            case 256:
+                mode = mode256;
+                break;
+            case 512:
+                mode = mode512;
+                break;
+            case 1024:
+                mode = mode1024;
+                break;
+            case 2048:
+                mode = mode2048;
+                break;
+            default:
+                throw new AssertionError();
+        }
     }
 
     /**
@@ -227,6 +253,10 @@ public class GameBoard {
         }
 
         addBlock();
+    }
+
+    public boolean hasWon(int[][] board) {
+        return mode.hasWon(board);
     }
 
 }

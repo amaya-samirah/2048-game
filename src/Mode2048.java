@@ -12,7 +12,7 @@ public class Mode2048 implements GameMode {
     }
 
     @Override
-    public boolean hasWon() {
+    public boolean hasWon(int[][] board) {
         boolean won = false;
 
         return won;
