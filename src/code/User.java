@@ -8,15 +8,26 @@ import java.util.UUID;
  */
 public class User {
     
-    private final UUID id;
+    private UUID id;
     private String userName;
     private String password;
 
     /**
-     * Contructor for a new user
-     * @param id User's id
+     * For constructing a new account
      * @param userName User's chosen username
      * @param password User's chose password
+     */
+    public User(String userName, String password) {
+        this.id = UUID.randomUUID();
+        this.userName = userName;
+        this.password = password;
+    }
+
+    /**
+     * For loading an existing account
+     * @param id User's specific id
+     * @param userName User's username
+     * @param password User's passwrod
      */
     public User(UUID id, String userName, String password) {
         this.id = id;
@@ -34,5 +45,13 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
