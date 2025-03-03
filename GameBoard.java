@@ -183,7 +183,7 @@ public class GameBoard {
                 throw new AssertionError();
         }
 
-        //addBlock();
+        addBlock();
     }
 
 }
