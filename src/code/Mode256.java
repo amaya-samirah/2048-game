@@ -1,14 +1,15 @@
-package src;
+package src.code;
+
 /**
- * This is the 512 game mode
+ * This is the 256 game mode
  * @author Amaya Shabazz
  */
 
-public class Mode512 implements GameMode {
+public class Mode256 implements GameMode {
     private GameBoard board;
-    private final int win = 512;
+    private final int win = 256;
 
-    public Mode512(GameBoard board) {
+    public Mode256(GameBoard board) {
         this.board = board;
     }
 

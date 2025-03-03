@@ -1,4 +1,4 @@
-package src;
+package src.code;
 import java.util.Scanner;
 
 public class GameDriver {

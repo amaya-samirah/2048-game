@@ -1,4 +1,5 @@
-package src;
+package src.code;
+
 /**
  * This is the 2048 game mode
  * @author Amaya Shabazz
