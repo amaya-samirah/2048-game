@@ -17,9 +17,11 @@ public class GameDriver {
         GameBoard gameBoard = GameBoard.getInstance(mode);
         //gameBoard.resetBoard();
         drawBoard(gameBoard);
-
+        
         boolean play = true;
         while (play) {
+            println("----------------");
+            println("Current Score: "+gameBoard.getScore());
             println("----------------");
             println("""
                     Enter 1 to move up:
@@ -34,17 +36,19 @@ public class GameDriver {
                 play = false;
                 break;
             }
+            drawBoard(gameBoard);
+            
             if (gameBoard.moveBlocks(input)) {
-                println("YOU WIN!!!");
+                println("---YOU WIN!!!---");
                 play = false;
-            } else {
-                drawBoard(gameBoard);
             }
-            
-            
+            if (gameBoard.hasLost()) {
+                println("---YOU LOSE!!!---");
+                play = false;
+            }
         }
         
-        println("You have exited the game.");
+        println("---GAME OVER---");
 
     }
 
