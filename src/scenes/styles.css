@@ -1,0 +1,15 @@
+.home_background {
+    -fx-background-color: pink;
+}
+
+.home_2048_text {
+    -fx-background-color: rgb(213, 94, 114);
+    text-decoration-color: white;
+    border: 4px fill white;
+}
+
+.login_button {
+    -fx-background-color: rgb(213, 94, 114);
+    text-decoration-color: white;
+    border: 4px fill white;
+}
