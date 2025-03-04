@@ -11,6 +11,7 @@ public class User {
     private UUID id;
     private String userName;
     private String password;
+    private int bestScore;
 
     /**
      * For constructing a new account
@@ -21,6 +22,7 @@ public class User {
         this.id = UUID.randomUUID();
         this.userName = userName;
         this.password = password;
+        bestScore = 0;
     }
 
     /**
@@ -29,14 +31,19 @@ public class User {
      * @param userName User's username
      * @param password User's passwrod
      */
-    public User(UUID id, String userName, String password) {
+    public User(UUID id, String userName, String password, int bestScore) {
         this.id = id;
         this.userName = userName;
         this.password = password;
+        this.bestScore = bestScore;
     }
 
     public UUID getId() {
         return id;
+    }
+
+    public int getBestScore() {
+        return bestScore;
     }
 
     public String getUserName() {
@@ -53,5 +60,9 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setBestScore(int score) {
+        this.bestScore = score;
     }
 }
