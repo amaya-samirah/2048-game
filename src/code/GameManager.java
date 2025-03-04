@@ -8,9 +8,11 @@ public class GameManager {
     public Scanner keyboard = new Scanner(System.in);
 
     protected GameBoard board;
+    private int bestScore;
 
-    public GameManager() {
+    public GameManager(int userBestScore) {
         board = GameBoard.getInstance();
+        bestScore = userBestScore;
     }
 
     public void run() {

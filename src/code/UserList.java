@@ -24,12 +24,13 @@ public class UserList {
     /**
      * Determines if the user exists
      * @param userName User's username
+     * @param password User's password
      * @return If the user exists
      */
-    public boolean hasUser(String userName) {
+    public boolean hasUser(String userName, String password) {
         boolean hasUser = false;
         for (User user : userList) {
-            if (user.getUserName().equals(userName)) {
+            if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
                 hasUser = true;
             }
         }
@@ -68,7 +69,7 @@ public class UserList {
      * @return If adding the new user was successful
      */
     public boolean addUser(String userName, String password) {
-        if (hasUser(userName)) {
+        if (hasUser(userName, password)) {
             return false;
         }
 
