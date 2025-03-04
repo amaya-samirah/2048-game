@@ -1,7 +1,6 @@
-package code;
+
 
 import java.util.ArrayList;
-import java.util.UUID;
 
 /**
  * This class deals with all the users
@@ -13,6 +12,6 @@ public class UserList {
     private ArrayList<User> userList;
 
     private UserList() {
-        
+        userList = DataManager.getUsers();
     }
 }

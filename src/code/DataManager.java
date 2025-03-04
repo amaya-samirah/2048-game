@@ -1,4 +1,3 @@
-package code;
 
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -24,11 +23,24 @@ public class DataManager {
         try {
             FileReader reader = new FileReader(FILENAME);
             JSONParser parser = JSONParser();
-            JSONArray userjson = (JSONArray)new JSONParser().parse(reader);
+            JSONArray usersjson = (JSONArray)new JSONParser().parse(reader);
+
+            for (int i = 0; i < usersjson.size(); i++) {
+                JSONObject userjson = (JSONObject)usersjson.get(i);
+                UUID id = UUID.fromString((String)userjson.get(ID));
+                String userName =(String)userjson.get(USERNAME);
+                String password = (String)userjson.get(PASSWORD);
+
+                users.add(new User(id, userName, password));
+            }
+
+            return users;
             
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        return null;
     }
 
 }

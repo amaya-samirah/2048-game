@@ -1,4 +1,3 @@
-package code;
 
 /**
  * This is the 1024 game mode
