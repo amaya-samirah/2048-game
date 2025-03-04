@@ -1,4 +1,3 @@
-
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.util.ArrayList;
@@ -8,7 +7,10 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-
+/**
+ * This class controls the data from the JSON file
+ * @author Amaya Shabazz
+ */
 public class DataManager {
     
     protected static final String FILENAME = "data/User.json";
@@ -17,6 +19,10 @@ public class DataManager {
     protected static final String USERNAME = "username";
     protected static final String PASSWORD = "password";  // later change to be more secure
 
+    /**
+     * All the users from the JSON file
+     * @return The full list of users
+     */
     public static ArrayList<User> getUsers() {
         ArrayList<User> users = new ArrayList<User>();
 
@@ -30,7 +36,7 @@ public class DataManager {
                 UUID id = UUID.fromString((String)userjson.get(ID));
                 String userName =(String)userjson.get(USERNAME);
                 String password = (String)userjson.get(PASSWORD);
-                int bestScore = (int)userjson.get(SCORE);
+                int bestScore = ((Long)userjson.get(SCORE)).intValue();
 
                 users.add(new User(id, userName, password, bestScore));
             }
@@ -44,6 +50,9 @@ public class DataManager {
         return null;
     }
 
+    /**
+     * Updates ALL users' information in JSON file
+     */
     public static void saveUsers() {
         UserList users = UserList.getInstance();
         ArrayList<User> userList = users.getUsers();
@@ -64,11 +73,17 @@ public class DataManager {
         }
     }
 
+    /**
+     * The object from the JSON file
+     * @param user The user (and information along with it)
+     * @return The new info from the JSON file
+     */
     public static JSONObject getUserJSON(User user) {
         JSONObject userInfo = new JSONObject();
         userInfo.put(ID, user.getId().toString());
         userInfo.put(USERNAME, user.getUserName());
         userInfo.put(PASSWORD, user.getPassword());
+        userInfo.put(SCORE, user.getBestScore());
 
         return userInfo;
     }

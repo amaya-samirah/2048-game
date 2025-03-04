@@ -1,5 +1,3 @@
-
-
 import java.util.ArrayList;
 
 /**
@@ -23,6 +21,11 @@ public class UserList {
         return users;
     }
 
+    /**
+     * Determines if the user exists
+     * @param userName User's username
+     * @return If the user exists
+     */
     public boolean hasUser(String userName) {
         boolean hasUser = false;
         for (User user : userList) {
@@ -34,6 +37,12 @@ public class UserList {
         return hasUser;
     }
 
+    /**
+     * The user that's logged in
+     * @param userName User's username
+     * @param password User's password
+     * @return The user corresponding to username and password
+     */
     public User getUser(String userName, String password) {
         for (User user : userList) {
             if (user.getUserName().equals(userName) && user.getPassword().equals(password)) {
@@ -44,10 +53,20 @@ public class UserList {
         return null;
     }
 
+    /**
+     * All the users
+     * @return The list of users
+     */
     public ArrayList<User> getUsers() {
         return userList;
     }
 
+    /**
+     * Adds a new user
+     * @param userName User's chosen username
+     * @param password User's chose password
+     * @return If adding the new user was successful
+     */
     public boolean addUser(String userName, String password) {
         if (hasUser(userName)) {
             return false;
@@ -59,6 +78,9 @@ public class UserList {
         return true;
     }
 
+    /**
+     * Saving users to JSON file
+     */
     public void saveUsers() {
         DataManager.saveUsers();
     }
