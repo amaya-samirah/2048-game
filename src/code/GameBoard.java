@@ -22,7 +22,7 @@ public class GameBoard {
     /**
      * Default constructor
      */
-    private GameBoard(int gameMode) {
+    private GameBoard() {
         score = 0;
 
         mode128 = new Mode128(this);
@@ -31,23 +31,27 @@ public class GameBoard {
         mode1024 = new Mode1024(this);
         mode2048 = new Mode2048(this);
 
-        setUpBoard();
+        resetBoard();
 
-        switch (gameMode) {
+        
+    }
+
+    public void setMode(int mode) {
+        switch (mode) {
             case 128:
-                mode = mode128;
+                this.mode = mode128;
                 break;
             case 256:
-                mode = mode256;
+                this.mode = mode256;
                 break;
             case 512:
-                mode = mode512;
+                this.mode = mode512;
                 break;
             case 1024:
-                mode = mode1024;
+                this.mode = mode1024;
                 break;
             case 2048:
-                mode = mode2048;
+                this.mode = mode2048;
                 break;
             default:
                 throw new AssertionError();
@@ -58,10 +62,10 @@ public class GameBoard {
      * Instance of GameBoard
      * @return GameBoard
      */
-    public static GameBoard getInstance(int gameMode) {
+    public static GameBoard getInstance() {
         if (gameboard == null) {
             System.out.println("Creating new board...");
-            gameboard = new GameBoard(gameMode);
+            gameboard = new GameBoard();
         }
 
         return gameboard;
@@ -95,6 +99,7 @@ public class GameBoard {
      */
     public void resetBoard() {
         board = new int[4][4];
+        setUpBoard();
     }
 
     /**
